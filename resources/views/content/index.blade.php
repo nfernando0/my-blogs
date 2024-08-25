@@ -28,7 +28,7 @@
                         <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">+{{ $blog->categories->count() }}</span>
                         @endif
                         </div>
-                        <span class="text-sm">{{ $blog->created_at->diffForHumans() }}</span>
+                        <span class="text-sm dark:text-white">{{ $blog->created_at->diffForHumans() }}</span>
                     </div>
                     <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a
                             href="{{ route('blog.show-blog.index', $blog->slug) }}">{{ $blog->title }}</a></h2>
