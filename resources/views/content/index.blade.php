@@ -6,13 +6,13 @@
 
     <div class="py-4 mx-auto max-w-screen-xl lg:py-8">
 
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
             @foreach ($blogs as $blog)
                 <article
-                    class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    class="p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
                         <div class="flex gap-2">
-                            @foreach ($blog->categories as $category)
+                            @foreach ($blog->categories->take(2) as $category)
                             <span
                                 class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
                                 <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20"
@@ -24,6 +24,9 @@
                                 {{ $category->name }}
                             </span>
                         @endforeach
+                        @if (count($blog->categories) > 2)
+                        <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">+{{ $blog->categories->count() }}</span>
+                        @endif
                         </div>
                         <span class="text-sm">{{ $blog->created_at->diffForHumans() }}</span>
                     </div>
