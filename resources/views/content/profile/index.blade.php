@@ -5,10 +5,10 @@
     <div class="flex gap-3" x-data="{ open: false }">
         <img src="https://dummyimage.com/300x300" alt="image">
         <div class="block">
-            <h1 class="text-4xl">Username: {{ $user->username }}</h1>
-            <h1 class="text-4xl">Email: {{ $user->email }}</h1>
-            <h1 class="text-4xl">Address: {{ $user->address }}</h1>
-            <h1 class="text-4xl">Phone: {{ $user->phone }}</h1>
+            <h1 class="text-4xl dark:text-white">Username: {{ $user->username }}</h1>
+            <h1 class="text-4xl dark:text-white">Email: {{ $user->email }}</h1>
+            <h1 class="text-4xl dark:text-white">Address: {{ $user->address }}</h1>
+            <h1 class="text-4xl dark:text-white">Phone: {{ $user->phone }}</h1>
 
             <button x-data x-on:click="$dispatch('open-modal')"
                 class="text-white mt-[6rem] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit

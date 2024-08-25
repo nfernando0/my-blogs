@@ -1,4 +1,4 @@
-<nav class="bg-gray-800" x-data="{ isOpen: false }">
+<nav class=" dark:bg-gray-800" x-data="{ isOpen: false }">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
@@ -10,13 +10,13 @@
                     <div class="ml-10 flex items-baseline space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <x-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')"
-                            class="{{ request()->routeIs('home.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">Home</x-nav-link>
+                            class="{{ request()->routeIs('home.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium text-gray-900 dark:text-white">Home</x-nav-link>
                         @auth
                             <x-nav-link href="{{ route('blog.index') }}" :active="request()->routeIs('blog.index')"
-                                class="{{ request()->routeIs('blog.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">Blogs</x-nav-link>
+                                class="{{ request()->routeIs('blog.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium text-gray-900 dark:text-white">Blogs</x-nav-link>
                         @endauth
                         <x-nav-link href="{{ route('category.index') }}" :active="request()->routeIs('category.index')"
-                            class="{{ request()->routeIs('category.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">Category</x-nav-link>
+                            class="{{ request()->routeIs('category.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium text-gray-900 dark:text-white">Category</x-nav-link>
                         {{-- <x-nav-link href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">My blog</x-nav-link> --}}
                     </div>
                 </div>
