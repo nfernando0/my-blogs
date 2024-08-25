@@ -5,6 +5,7 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Usamamuneerchaudhary\Commentify\Traits\Commentable;
 
 class Blog extends Model
@@ -18,9 +19,9 @@ class Blog extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function category()
+    public function categories(): BelongsToMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class, 'blogs_category');
     }
 
     public function sluggable(): array

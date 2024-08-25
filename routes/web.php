@@ -21,6 +21,7 @@ Route::get('/', function () {
 
     $blogs = Blog::paginate(9)->withQueryString();
 
+
     return view('content.index', compact('title', 'blogs'));
 })->name('home.index');
 

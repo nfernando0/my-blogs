@@ -17,6 +17,8 @@ class BlogController extends Controller
     {
         $title = 'My Blog';
         $blogs = Blog::where('user_id', auth()->user()->id)->get();
+
+
         return view('content.blogs.blog', compact('title', 'blogs'));
     }
 
@@ -35,22 +37,17 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $credentials = $request->validate([
-            'title' => ['required'],
-            'slug' => ['required'],
-            'content' => ['required'],
-            'category_id' => ['required'],
-        ]);
+        $blogs = new Blog;
+        $blogs->title = $request->input('title');
+        $blogs->content = $request->input('content');
+        $blogs->user_id = auth()->user()->id;
+        $blogs->slug = $request->input('slug');
+        $blogs->save();
 
-        $credentials['user_id'] = auth()->user()->id;
-        $blog = Blog::create($credentials);
+        $categories = $request->input('categories');
+        $blogs->categories()->sync($categories);
 
-
-        if ($blog) {
-            return redirect('/');
-        }
-
-        return back();
+        return redirect('/');
     }
 
     /**
