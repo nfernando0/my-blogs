@@ -9,10 +9,11 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <x-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">Home</x-nav-link>
+                        <x-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')"
+                            class="{{ request()->routeIs('home.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">Home</x-nav-link>
                         @auth
-                        <x-nav-link href="{{ route('blog.index') }}" :active="request()->routeIs('blog.index')"
-                            class="{{ request()->routeIs('blog.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">Blogs</x-nav-link>
+                            <x-nav-link href="{{ route('blog.index') }}" :active="request()->routeIs('blog.index')"
+                                class="{{ request()->routeIs('blog.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">Blogs</x-nav-link>
                         @endauth
                         <x-nav-link href="{{ route('category.index') }}" :active="request()->routeIs('category.index')"
                             class="{{ request()->routeIs('category.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">Category</x-nav-link>
@@ -62,10 +63,10 @@
             <x-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')"
                 class="{{ request()->routeIs('home.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium text-white"
                 aria-current="page">Home</x-nav-link>
-          @auth
-          <x-nav-link :active="request()->routeIs('blog.index')" href="{{ route('blog.index') }}"
-            class="{{ request()->routeIs('blog.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Blogs</x-nav-link>
-          @endauth
+            @auth
+                <x-nav-link :active="request()->routeIs('blog.index')" href="{{ route('blog.index') }}"
+                    class="{{ request()->routeIs('blog.index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Blogs</x-nav-link>
+            @endauth
             <x-nav-link :active="request()->routeIs('category.index')" href="{{ route('category.index') }}"
                 class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Category</x-nav-link>
             {{-- <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">My Blogs</a> --}}

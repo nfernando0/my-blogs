@@ -19,7 +19,7 @@ use Laravel\Socialite\Facades\Socialite;
 Route::get('/', function () {
     $title = 'Home Page';
 
-    $blogs = Blog::all();
+    $blogs = Blog::paginate(9)->withQueryString();
 
     return view('content.index', compact('title', 'blogs'));
 })->name('home.index');
